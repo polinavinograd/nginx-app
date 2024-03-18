@@ -1,4 +1,4 @@
-nginx_replicaCount: 1
+nginx_replicaCount: 2
 apache_replicaCount: 1
 
 nginx_image:
