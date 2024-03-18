@@ -1,0 +1,57 @@
+nginx_replicaCount: 1
+apache_replicaCount: 1
+
+nginx_image:
+  repository: polinavngrd/nginx
+  pullPolicy: IfNotPresent
+  tag: "task26"
+
+apache_image:
+  repository: polinavngrd/apache
+  pullPolicy: IfNotPresent
+  tag: "v-20240209-131500"
+
+nginx_service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+
+apache_service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+nginx_resources:
+  limits:
+    cpu: 6m
+  requests:
+    cpu: 3m
+
+apache_resources:
+  limits:
+    cpu: 6m
+  requests:
+    cpu: 3m
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+volumeMounts:
+  - name: nginx-config-volume
+    mountPath: /etc/nginx/conf.d
+  - name: nginx-start-page-volume
+    mountPath: /var/www/html/index.html
+    subPath: index.html
+
+volumes:
+  - name: nginx-config-volume
+    secret:
+      secretName: nginx-config
+  - name: nginx-start-page-volume
+    configMap:
+      name: nginx-start-page
+
