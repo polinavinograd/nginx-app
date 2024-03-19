@@ -1,4 +1,4 @@
-nginx_image:
+image:
   repository: polinavngrd/nginx
   pullPolicy: IfNotPresent
   tag: ""
