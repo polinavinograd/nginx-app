@@ -2,7 +2,6 @@ nginx_image:
   repository: polinavngrd/nginx
   pullPolicy: IfNotPresent
   tag: ""
-
 autoscaling:
   enabled: false
   minReplicas: 1
