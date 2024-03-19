@@ -4,7 +4,7 @@ apache_replicaCount: 1
 nginx_image:
   repository: polinavngrd/nginx
   pullPolicy: Always
-  tag: "v4"
+  tag: ""
 
 nginx_service:
   type: NodePort
