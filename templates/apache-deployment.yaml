@@ -19,6 +19,5 @@ spec:
       containers:
         - name: apache-container
           image: polinavngrd/apache:v-20240209-131500
-          imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: {{ .Values.apache_service.port }}
+            - containerPort: 8080

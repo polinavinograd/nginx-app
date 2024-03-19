@@ -5,9 +5,6 @@ metadata:
   labels:
     app: nginx
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.nginx_replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       app: nginx
@@ -21,9 +18,7 @@ spec:
           image: "{{ .Values.nginx_image.repository }}:{{ .Values.nginx_image.tag }}"
           imagePullPolicy: {{ .Values.nginx_image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.nginx_service.port }}
-          resources:
-            {{- toYaml .Values.nginx_resources | nindent 12 }}
+            - containerPort: 80
           {{- with .Values.volumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}

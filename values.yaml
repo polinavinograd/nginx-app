@@ -1,26 +1,7 @@
-nginx_replicaCount: 2
-apache_replicaCount: 1
-
 nginx_image:
   repository: polinavngrd/nginx
-  pullPolicy: Always
-  tag: "v4"
-
-nginx_service:
-  type: NodePort
-  port: 80
-  targetPort: 80
-
-apache_service:
-  type: ClusterIP
-  port: 8080
-  targetPort: 8080
-
-nginx_resources:
-  limits:
-    cpu: 6m
-  requests:
-    cpu: 3m
+  pullPolicy: IfNotPresent
+  tag: ""
 
 autoscaling:
   enabled: false

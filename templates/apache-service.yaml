@@ -5,10 +5,9 @@ metadata:
   labels:
     app: apache
 spec:
-  type: {{ .Values.apache_service.type }}
   ports:
-    - port: {{ .Values.apache_service.port }}
-      targetPort: {{ .Values.apache_service.targetPort }}
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
   selector:
     app: apache
