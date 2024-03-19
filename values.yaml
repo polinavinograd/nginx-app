@@ -3,12 +3,12 @@ apache_replicaCount: 1
 
 nginx_image:
   repository: polinavngrd/nginx
-  pullPolicy: IfNotPresent
-  tag: "task26"
+  pullPolicy: Always
+  tag: "v4"
 
 apache_image:
   repository: polinavngrd/apache
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "v-20240209-131500"
 
 nginx_service:
