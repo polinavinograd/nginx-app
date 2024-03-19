@@ -5,9 +5,7 @@ metadata:
   labels:
     app: apache
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.apache_replicaCount }}
-  {{- end }}
+  replicas: 1
   selector:
     matchLabels:
       app: apache
