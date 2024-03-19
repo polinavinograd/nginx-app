@@ -6,11 +6,6 @@ nginx_image:
   pullPolicy: Always
   tag: "v4"
 
-apache_image:
-  repository: polinavngrd/apache
-  pullPolicy: Always
-  tag: "v-20240209-131500"
-
 nginx_service:
   type: NodePort
   port: 80
@@ -26,13 +21,6 @@ nginx_resources:
     cpu: 6m
   requests:
     cpu: 3m
-
-apache_resources:
-  limits:
-    cpu: 6m
-  requests:
-    cpu: 3m
-
 
 autoscaling:
   enabled: false

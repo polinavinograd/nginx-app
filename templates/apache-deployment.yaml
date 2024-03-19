@@ -18,9 +18,7 @@ spec:
     spec:
       containers:
         - name: apache-container
-          image: "{{ .Values.apache_image.repository }}:{{ .Values.apache_image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.apache_image.pullPolicy }}
+          image: polinavngrd/apache:v-20240209-131500
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.apache_service.port }}
-          resources:
-            {{- toYaml .Values.apache_resources | nindent 12 }}
